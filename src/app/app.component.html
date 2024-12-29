@@ -1,0 +1,26 @@
+<main class="main">
+  <div class="content">
+    <div class="left-side">
+      <h2>Appkit test</h2>
+
+      <div class="button-container">
+        <button class="pill" (click)="connectWallet()">Connect wallet</button>
+        <button class="pill" (click)="sendTransaction()">Send tokens</button>
+      </div>
+
+    </div>
+
+    <div class="right-side">
+      <ng-container *ngIf="account">
+        <p><strong>Account</strong>:<br>{{ account }}</p>
+        <p><strong>Account status</strong>:<br>{{ accountStatus }}</p>
+        <p><strong>Wallet</strong>:<br>{{ walletInfo?.name }}</p>
+        <p><strong>Provider ready</strong>:<br>{{ providerReady ? 'yes' : 'no' }}</p>
+        <p><strong>Wagmi status</strong>:<br>{{ config?.state?.status }}</p>
+        <p><strong>Wagmi connections</strong>:<br>{{ config?.state?.connections?.size }}</p>
+      </ng-container>
+    </div>
+  </div>
+</main>
+
+<router-outlet/>
